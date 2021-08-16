@@ -35,7 +35,7 @@ const writeApp = (ctx, options: Options) => {
     // 只有页面个数大于0才加入分包列表
     if (pageStr) {
       joinPages = `${joinPages}      {
-        "root": "${item.dirname}",
+        "root": "subpackages/${item.dirname}",
         "pages": [
           ${pageStr}
         ]
