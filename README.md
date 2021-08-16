@@ -1,3 +1,3 @@
-# taro-plugin-check-env
+# taro-plugin-internal
 
-taro插件，用于在编译前的环境变量检查。
+Taro开放式跨团队协作插件。

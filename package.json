@@ -1,7 +1,7 @@
 {
-  "name": "taro-plugin-template",
+  "name": "taro-plugin-internal",
   "version": "0.0.1",
-  "description": "taro 插件模版",
+  "description": "Taro开放式跨团队协作插件",
   "main": "index.js",
   "scripts": {
     "build": "npm run clean && npm run prod",
@@ -44,6 +44,7 @@
     "@tarojs/helper": "2.2.3",
     "@tarojs/service": "2.2.3",
     "body-parser": "^1.19.0",
+    "download-git-repo": "^3.0.2",
     "express": "^4.17.1",
     "get-port": "^5.1.1",
     "glob": "^7.1.6",
