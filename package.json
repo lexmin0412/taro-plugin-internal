@@ -1,0 +1,53 @@
+{
+  "name": "taro-plugin-template",
+  "version": "0.0.1",
+  "description": "taro 插件模版",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run clean && npm run prod",
+    "dev": "tsc -w",
+    "prod": "tsc",
+    "clean": "rimraf dist",
+    "test": "jest",
+    "test:dev": "jest --watch"
+  },
+  "files": [
+    "src",
+    "dist",
+    "index.js",
+    "package.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cathe-zhang/taro-plugin-template.git"
+  },
+  "keywords": [
+    "taro",
+    "plugins"
+  ],
+  "author": "cathe-zhang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cathe-zhang/taro-plugin-template/issues"
+  },
+  "homepage": "https://github.com/cathe-zhang/taro-plugin-template#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.3",
+    "@types/jest": "^25.1.4",
+    "@types/node": "^13.9.8",
+    "jest": "^25.2.4",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^25.3.0",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@tarojs/helper": "2.2.3",
+    "@tarojs/service": "2.2.3",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "get-port": "^5.1.1",
+    "glob": "^7.1.6",
+    "http-proxy-middleware": "^1.0.3",
+    "path-to-regexp": "^6.1.0"
+  }
+}
