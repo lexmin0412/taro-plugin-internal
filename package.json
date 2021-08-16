@@ -1,6 +1,6 @@
 {
   "name": "taro-plugin-internal",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Taro开放式跨团队协作插件",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,6 @@
     "test:dev": "jest --watch"
   },
   "files": [
-    "src",
     "dist",
     "index.js",
     "package.json"
