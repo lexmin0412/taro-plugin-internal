@@ -1,6 +1,6 @@
 {
   "name": "taro-plugin-internal",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Taro开放式跨团队协作插件",
   "main": "index.js",
   "scripts": {
