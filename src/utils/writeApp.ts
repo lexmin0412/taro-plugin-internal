@@ -49,7 +49,7 @@ const writeApp = (ctx, options: Options) => {
         ]
       },`
     } else {
-      console.log(chalk.redBright('错误'), `${item.dirname}分包没有扫描到任何页面，请检查`)
+      console.log(chalk.redBright('错误 '), `分包 ${item.dirname} 没有扫描到任何页面，请检查`)
     }
   })
 

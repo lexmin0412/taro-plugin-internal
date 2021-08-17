@@ -21,7 +21,7 @@ const downloadSubModules = (ctx, options: Options) => {
 
       // 第一步 删除原目录
       if (fs.existsSync(`./src/subpackages/${element.dirname}`)) {
-        console.log(`${chalk.gray('删除 ')}`, `旧的分包 ${chalk.greenBright(element.dirname)}`)
+        console.log(`${chalk.gray('删除 ')}`, `旧的分包 ${element.dirname}`)
         fs.rmSync(`./src/subpackages/${element.dirname}`, {
           maxRetries: 2,
           recursive: true,
