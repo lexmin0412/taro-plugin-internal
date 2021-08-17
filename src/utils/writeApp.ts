@@ -2,6 +2,11 @@ import {findPage} from './findPage'
 import {writeFileByBoundry} from './writeFile'
 import { Options } from './../types/index'
 
+/**
+ * 将最新的外部分包配置写入app.tsx
+ * @param ctx
+ * @param options 
+ */
 const writeApp = (ctx, options: Options) => {
 
   const {
@@ -9,6 +14,7 @@ const writeApp = (ctx, options: Options) => {
       chalk
     }
   } = ctx
+  console.log(chalk.yellow('开始 '), '进入读取分包并写入配置阶段')
 
   const { repositories, writeConfig: {
     filePath,
@@ -22,7 +28,7 @@ const writeApp = (ctx, options: Options) => {
 
   // 循环读取文件
   repositories.forEach((item) => {
-
+    console.log(chalk.magentaBright('扫描 '), `发现分包 ${item.dirname}`);
     const files = findPage(`src/subpackages/${item.dirname}`, '')
 
     let pageStr = ``
@@ -41,7 +47,7 @@ const writeApp = (ctx, options: Options) => {
         ]
       },`
     } else {
-      console.log(chalk.yellow(`${item.dirname}分包没有扫描到任何页面，请检查`))
+      console.log(chalk.redBright(`${item.dirname}分包没有扫描到任何页面，请检查`))
     }
   })
 
@@ -50,6 +56,9 @@ const writeApp = (ctx, options: Options) => {
     startLineContent,
     endLineContent
   })
+
+  console.log(chalk.blueBright('结束 '), '分包配置写入完成');
+  
 }
 
 export default writeApp
