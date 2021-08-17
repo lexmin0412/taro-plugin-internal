@@ -21,7 +21,7 @@ const downloadSubModules = (ctx, options: Options) => {
 
       // 第一步 删除原目录
       if (fs.existsSync(`./src/subpackages/${element.dirname}`)) {
-        console.log(`${chalk.gray('删除 ')}`, `旧的分包 ${element.dirname}`)
+        console.log(`${chalk.gray('删除 ')}`, `分包 ${element.dirname} 的旧代码`)
         fs.rmSync(`./src/subpackages/${element.dirname}`, {
           maxRetries: 2,
           recursive: true,
@@ -31,7 +31,7 @@ const downloadSubModules = (ctx, options: Options) => {
 
       const downloadPromise = (): Promise<DownloadError> => {
         return new Promise((resolve) => {
-          console.log(`${chalk.magentaBright('下载 ')}`, `最新分包 ${chalk.greenBright(element.dirname)}`)
+          console.log(chalk.magentaBright('拉取 '), `分包 ${element.dirname} 的最新代码`)
           download(`direct:${element.url}#${element.commit}`, `./src/subpackages/${element.dirname}`, {
             headers: {
               'PRIVATE-TOKEN': element.token
@@ -61,7 +61,7 @@ const downloadSubModules = (ctx, options: Options) => {
       const failedRepos = res.filter((item: DownloadError) => item.reason !== undefined)
       if (failedRepos.length) {
         failedRepos.forEach((element: DownloadError) => {
-          console.log(chalk.redBright('错误'),  `分包 ${element.dirname} 下载失败: ${element.reason}`)
+          console.log(chalk.redBright('错误 '),  `分包 ${element.dirname} 下载失败: ${element.reason}`)
         })
       } else {
         console.log(chalk.greenBright('成功 '), '所有分包下载成功 ✅');
