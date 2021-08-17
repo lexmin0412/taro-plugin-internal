@@ -29,7 +29,9 @@ const writeApp = (ctx, options: Options) => {
   // 循环读取文件
   repositories.forEach((item) => {
     console.log(chalk.magentaBright('扫描 '), `发现分包 ${item.dirname}`);
-    const files = findPage(`src/subpackages/${item.dirname}`, '')
+    const files = findPage(`src/subpackages/${item.dirname}`, '', {
+      chalk
+    })
 
     let pageStr = ``
     files.forEach((file) => {
