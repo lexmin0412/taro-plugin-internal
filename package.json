@@ -18,18 +18,18 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cathe-zhang/taro-plugin-template.git"
+    "url": "git+https://github.com/lexmin0412/taro-plugin-internal.git"
   },
   "keywords": [
     "taro",
     "plugins"
   ],
-  "author": "cathe-zhang",
+  "author": "lexmin0412",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cathe-zhang/taro-plugin-template/issues"
+    "url": "https://github.com/lexmin0412/taro-plugin-internal/issues"
   },
-  "homepage": "https://github.com/cathe-zhang/taro-plugin-template#readme",
+  "homepage": "https://github.com/lexmin0412/taro-plugin-internal#readme",
   "devDependencies": {
     "@types/express": "^4.17.3",
     "@types/jest": "^25.1.4",
