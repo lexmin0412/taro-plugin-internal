@@ -11,7 +11,7 @@ const downloadSubModules = (ctx, options: Options) => {
       chalk
     }
   } = ctx
-  console.log(chalk.yellow('开始 '), '进入分包下载步骤')
+  console.log(chalk.greenBright('开始 '), '进入分包下载步骤')
   const { repositories } = options
   
   return new Promise((resolve) => {
@@ -21,7 +21,7 @@ const downloadSubModules = (ctx, options: Options) => {
 
       // 第一步 删除原目录
       if (fs.existsSync(`./src/subpackages/${element.dirname}`)) {
-        console.log(`${chalk.magenta('删除 ')}`, `旧的分包 ${chalk.greenBright(element.dirname)}`)
+        console.log(`${chalk.redBright('删除 ')}`, `旧的分包 ${chalk.greenBright(element.dirname)}`)
         fs.rmSync(`./src/subpackages/${element.dirname}`, {
           maxRetries: 2,
           recursive: true,
@@ -61,15 +61,17 @@ const downloadSubModules = (ctx, options: Options) => {
       const failedRepos = res.filter((item: DownloadError) => item.reason !== undefined)
       if (failedRepos.length) {
         failedRepos.forEach((element: DownloadError) => {
-          console.log(`${chalk.redBright(`分包 ${element.dirname} 下载失败: ${element.reason}`)}`)
+          console.log(chalk.redBright('错误'),  `分包 ${element.dirname} 下载失败: ${element.reason}`)
         })
       } else {
-        console.log('所有分包下载成功 ✅');
+        console.log(chalk.greenBright('成功 '), '所有分包下载成功 ✅');
       }
-      console.log(chalk.green('下载操作执行完成'));
+      console.log(chalk.blueBright('结束 '), '下载操作执行完成')
+      console.log('');
+      
       resolve(true)
     }).catch((err) => {
-      console.log(`${chalk.redBright('下载分包执行失败, error: ', err)}`)
+      console.log(chalk.redBright('错误 '), '下载分包执行失败, error: ', err)
     })
   })
 }

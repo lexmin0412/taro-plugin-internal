@@ -14,7 +14,7 @@ const writeApp = (ctx, options: Options) => {
       chalk
     }
   } = ctx
-  console.log(chalk.yellow('开始 '), '进入读取分包并写入配置阶段')
+  console.log(chalk.greenBright('开始 '), '进入读取分包并写入配置阶段')
 
   const { repositories, writeConfig: {
     filePath,
@@ -47,7 +47,7 @@ const writeApp = (ctx, options: Options) => {
         ]
       },`
     } else {
-      console.log(chalk.redBright(`${item.dirname}分包没有扫描到任何页面，请检查`))
+      console.log(chalk.redBright('错误'), `${item.dirname}分包没有扫描到任何页面，请检查`)
     }
   })
 
@@ -58,6 +58,8 @@ const writeApp = (ctx, options: Options) => {
   })
 
   console.log(chalk.blueBright('结束 '), '分包配置写入完成');
+  console.log('');
+  
   
 }
 
