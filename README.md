@@ -80,6 +80,6 @@ module.exports = {
 | 属性 | 说明 | 类型 | 是否必传 |
 |------|------|------|----------|
 |startLineContent|开始行的内容标识|string|是|
-|startLineContent|开始行的内容标识|string|是|
+|endLineContent|结束行的内容标识|string|是|
 
 
