@@ -21,10 +21,21 @@ export interface Options {
    * 写文件配置
    */
   writeConfig: {
-    filePath: string
-    options: {
-      startLineContent: string
-      endLineContent: string
+    app: {
+      enable: boolean
+      filePath: string
+      options: {
+        startLineContent: string
+        endLineContent: string
+      }
+    },
+    gitignore: {
+      enable: boolean
+      filePath: string
+      options: {
+        startLineContent: string
+        endLineContent: string
+      }
     }
   }
 }

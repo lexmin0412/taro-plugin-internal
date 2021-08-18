@@ -16,13 +16,19 @@ export const writeApp = (ctx, options: Options) => {
   } = ctx
   console.log(chalk.greenBright('开始 '), '进入读取分包并写入配置阶段')
 
-  const { repositories, writeConfig: {
+  const { repositories, writeConfig } = options
+
+  if ( !writeConfig?.app?.enable ) {
+    console.log(chalk.redBright('错误 '), '不允许 app 写入，请检查传入的配置')
+    return
+  }
+  const { app: {
     filePath,
     options: {
       startLineContent,
       endLineContent
     }
-  } } = options
+  } } = writeConfig
   
   let joinPages = ''
 
@@ -73,21 +79,27 @@ export const writeGitIgnore = (ctx, options: Options) => {
       chalk
     }
   } = ctx
-  console.log(chalk.greenBright('开始 '), '写入.gitignore')
+  console.log(chalk.greenBright('开始 '), '写入gitignore')
 
-  const {repositories} = options
+  const {repositories, writeConfig} = options
+
+  if ( !writeConfig?.gitignore?.enable ) {
+    console.log(chalk.redBright('错误 '), '不允许 gitignore 写入，请检查传入的配置')
+    return
+  }
+  const { gitignore: {filePath, options: {startLineContent, endLineContent}} } = writeConfig
   
   let ignoreStr = ``
   repositories.forEach((item) => {
     ignoreStr = ignoreStr ? `${ignoreStr}
 src/subpackages/${item.dirname}` : `src/subpackages/${item.dirname}`
   })
-  writeFileByBoundry('./.gitignore', ignoreStr, {
-    startLineContent: '# internal placeholder start',
-    endLineContent: '# internal placeholder end'
+  writeFileByBoundry(filePath, ignoreStr, {
+    startLineContent,
+    endLineContent
   })
 
-  console.log(chalk.blueBright('结束 '), '.gitignore写入完成');
+  console.log(chalk.blueBright('结束 '), 'gitignore写入完成');
   console.log('');
 }
 
