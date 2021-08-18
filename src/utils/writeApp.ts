@@ -63,8 +63,7 @@ const writeApp = (ctx, options: Options) => {
   let ignoreStr = ``
   repositories.forEach((item)=>{
     ignoreStr = `${ignoreStr}
-    src/subpackages/${item.dirname}
-`
+src/subpackages/${item.dirname}`
   })
   writeFileByBoundry('./.gitignore', ignoreStr, {
     startLineContent: '# internal placeholder start',
