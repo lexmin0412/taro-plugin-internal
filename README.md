@@ -77,7 +77,7 @@ class App extends Component {
 | 配置项       | 说明                  | 类型            | 是否必传 |
 |--------------|-----------------------|-----------------|----------|
 | repositories | 需要拉取的git仓库配置 | [Object Object] | 是      |
-| writeConfig  | 写入文件配置          | [Object Object] | No       |
+| writeConfig  | 写入文件配置          | [Object Object] | 否       |
 
 ### Options.repositories
 
