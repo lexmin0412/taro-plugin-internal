@@ -17,6 +17,13 @@ const downloadSubModules = (ctx, options: Options) => {
   return new Promise((resolve) => {
     let unFinishedSubModules: Array<DownloadError> = []
     let downloadPromises: Array<Promise<DownloadError>> = []
+
+    if ( !repositories.length ) {
+      console.log(chalk.blueBright('结束 '), '分包配置列表为空')
+      resolve(true)
+      return
+    }
+    
     repositories.forEach(element => {
 
       // 第一步 删除原目录

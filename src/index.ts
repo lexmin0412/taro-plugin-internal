@@ -11,9 +11,13 @@ export default (ctx, options: Options) => {
 
   console.log('');  // 用于与上下文日志分割
   
-  
   ctx.onBuildStart(async() => {
     console.log(chalk.yellow('插件 '), 'taro-plugin-internal 外部分包代码同步并写入配置');
+
+    if (!options?.repositories?.length) {
+      console.log(chalk.blueBright('结束 '), '分包配置列表为空')
+      return
+    }
 
     // 下载并写入分包配置
     await downloadSubModules(ctx, options)
