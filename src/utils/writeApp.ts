@@ -7,7 +7,7 @@ import { Options } from './../types/index'
  * @param ctx
  * @param options 
  */
-const writeApp = (ctx, options: Options) => {
+export const writeApp = (ctx, options: Options) => {
 
   const {
     helper: {
@@ -59,10 +59,27 @@ const writeApp = (ctx, options: Options) => {
     endLineContent
   })
 
-  // 写入.gitignore
+  console.log(chalk.blueBright('结束 '), 'app.tsx写入完成');
+  console.log('');
+}
+
+/**
+ * 写入.gitignore
+ */
+export const writeGitIgnore = (ctx, options: Options) => {
+
+  const {
+    helper: {
+      chalk
+    }
+  } = ctx
+  console.log(chalk.greenBright('开始 '), '写入.gitignore')
+
+  const {repositories} = options
+  
   let ignoreStr = ``
-  repositories.forEach((item)=>{
-    ignoreStr = `${ignoreStr}
+  repositories.forEach((item) => {
+    ignoreStr = ignoreStr ? `src/subpackages/${item.dirname}` : `${ignoreStr}
 src/subpackages/${item.dirname}`
   })
   writeFileByBoundry('./.gitignore', ignoreStr, {
@@ -70,7 +87,7 @@ src/subpackages/${item.dirname}`
     endLineContent: '# internal placeholder end'
   })
 
-  console.log(chalk.blueBright('结束 '), '分包配置写入完成');
+  console.log(chalk.blueBright('结束 '), '.gitignore写入完成');
   console.log('');
 }
 

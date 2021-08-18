@@ -1,5 +1,5 @@
 import downloadSubModules from './utils/download'
-import writeApp from './utils/writeApp'
+import { writeApp, writeGitIgnore } from './utils/writeApp'
 
 export default (ctx, options) => {
   const {
@@ -16,7 +16,9 @@ export default (ctx, options) => {
 
     // 下载并写入分包配置
     await downloadSubModules(ctx, options)
+
     writeApp(ctx, options)
+    writeGitIgnore(ctx, options)
 
     console.log('');  // 用于与上下文日志分割
   })
