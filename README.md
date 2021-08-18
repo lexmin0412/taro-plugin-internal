@@ -33,8 +33,8 @@ module.exports = {
           enable: true,
           filePath: './.gitignore',
           options: {
-            startLineContent: '/** internal placeholder start */',
-            endLineContent: '/** internal placeholder end */'
+            startLineContent: '# internal placeholder start',
+            endLineContent: '# internal placeholder end'
           }
         }
       }
