@@ -79,8 +79,8 @@ export const writeGitIgnore = (ctx, options: Options) => {
   
   let ignoreStr = ``
   repositories.forEach((item) => {
-    ignoreStr = ignoreStr ? `src/subpackages/${item.dirname}` : `${ignoreStr}
-src/subpackages/${item.dirname}`
+    ignoreStr = ignoreStr ? `${ignoreStr}
+src/subpackages/${item.dirname}` : `src/subpackages/${item.dirname}`
   })
   writeFileByBoundry('./.gitignore', ignoreStr, {
     startLineContent: '# internal placeholder start',
