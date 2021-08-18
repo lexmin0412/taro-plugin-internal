@@ -59,6 +59,17 @@ const writeApp = (ctx, options: Options) => {
     endLineContent
   })
 
+  // 写入.gitignore
+  let ignoreStr = ``
+  repositories.forEach((item)=>{
+    ignoreStr = `${ignoreStr}
+    src/subpackages/${item.dirname}`
+  })
+  writeFileByBoundry('./.gitignore', ignoreStr, {
+    startLineContent: '# internal placeholder start',
+    endLineContent: '# internal placeholder end'
+  })
+
   console.log(chalk.blueBright('结束 '), '分包配置写入完成');
   console.log('');
   
