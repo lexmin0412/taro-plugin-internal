@@ -1,13 +1,14 @@
 # taro-plugin-internal
 
-Taro开放式跨团队协作插件，基于 gitlab api。
+Taro跨团队协作插件，基于 gitlab api，实现一主多从的多团队开发模式。
 
 ## Usage
 
-> 注意：本插件仅试用于 Taro2.x 版本项目，3.x版本未测试。
+> 注意：本插件仅试用于 Taro2.x 版本项目，3.x版本未经测试，因涉及到文件读写操作，请谨慎使用。
+
+`config/index.js`
 
 ```js
-// config/index.js
 module.exports = {
   plugins: {
     ['taro-plugin-internal', {
@@ -38,6 +39,33 @@ module.exports = {
         }
       }
     }]
+  }
+}
+```
+
+`.gitignore`
+
+```bash
+# internal placeholder start
+
+# internal placeholder end
+```
+
+`app.tsx`
+
+```jsx
+class App extends Component {
+  config: Config = {
+    pages: [
+      'page/home/index',
+    ],
+    subPackages: [
+      ...
+      /** internal placeholder start */
+
+      /** internal placeholder end */,
+      ...
+    ]
   }
 }
 ```
