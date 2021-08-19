@@ -1,5 +1,5 @@
 const fs = require('fs')
-import {isPageDirectory} from './isDirectory'
+import {isPageDirectory, isDirectory} from './isDirectory'
 import {isValidPageFilePath} from './filterFile'
 
 /**
@@ -13,8 +13,8 @@ export const findPage = (rootDir, base: string, options: {
   const { chalk } = options
   let paths: string[] = []
   const basePath = `${rootDir}/${base}`
-  // 如果是页面文件夹，则遍历读取
-  if (isPageDirectory(basePath)) {
+  // 遍历文件列表
+  if (isDirectory(basePath)) {
     const files = fs.readdirSync(basePath)
     files.forEach(element => {
       const currentPath = `${rootDir}/${base}/${element}`
