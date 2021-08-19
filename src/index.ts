@@ -16,6 +16,7 @@ export default (ctx, options: Options) => {
 
     if (!options?.repositories?.length) {
       console.log(chalk.blueBright('结束 '), '分包配置列表为空')
+      console.log('');
       return
     }
 
