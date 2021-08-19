@@ -39,10 +39,12 @@ const downloadSubModules = (ctx, options: Options) => {
       const downloadPromise = (): Promise<DownloadError> => {
         return new Promise((resolve) => {
           console.log(chalk.magentaBright('拉取 '), `分包 ${element.dirname} 的最新代码`)
-          download(`direct:${element.url}#${element.commit}`, `./src/subpackages/${element.dirname}`, {
-            headers: {
-              'PRIVATE-TOKEN': element.token
-            },
+          const splitRes = element.url.split('//')
+          const completeUrl = `${splitRes[0]}//oauth2:${element.token}@${splitRes[1]}`
+          download(`direct:${completeUrl}#${element.commit}`, `./src/subpackages/${element.dirname}`, {
+            // headers: {
+            //   'PRIVATE-TOKEN': element.token
+            // },
             clone: true
           }, (err) => {
             if (err) {
