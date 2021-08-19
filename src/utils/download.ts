@@ -1,4 +1,5 @@
 import { Options, DownloadError } from './../types/index'
+import { deleteDirectory } from './deleteDirectory'
 const download = require('download-git-repo')
 const fs = require('fs')
 
@@ -29,11 +30,7 @@ const downloadSubModules = (ctx, options: Options) => {
       // 第一步 删除原目录
       if (fs.existsSync(`./src/subpackages/${element.dirname}`)) {
         console.log(`${chalk.gray('删除 ')}`, `分包 ${element.dirname} 的旧代码`)
-        fs.rmSync(`./src/subpackages/${element.dirname}`, {
-          maxRetries: 2,
-          recursive: true,
-          force: true
-        })
+        deleteDirectory(`./src/subpackages/${element.dirname}`)
       }
 
       const downloadPromise = (): Promise<DownloadError> => {
