@@ -1,5 +1,10 @@
 # 更新日志
 
+## V0.0.20(2021-08-19)
+
+- 【Fix】 修复分包顶层没有声明 meta.json 时读不到文件的问题 
+- 【Breaking Change】 重构 repository url形式，改为 https
+
 ## V0.0.19(2021-08-18)
 
 - 【Perf】 添加配置列表为空的提示
