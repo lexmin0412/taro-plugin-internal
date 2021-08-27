@@ -19,14 +19,19 @@ export const findPage = (rootDir, base: string, options: {
     files.forEach(element => {
       const currentPath = `${rootDir}/${base}/${element}`
       const nextBase: string = base ? `${base}/${element}` : element
+      const isCurrentPageDirectory = isPageDirectory(currentPath)
 
-      if (isPageDirectory(currentPath)) {
-        // 是文件夹则递归
+      // 是文件夹则递归
+      if (isDirectory(currentPath)) {
         paths = paths.concat(findPage(rootDir, nextBase, {chalk}))
-      } else if (isValidPageFilePath(element)) {
-        // 文件是页面类型则加入
-        console.log(chalk.magentaBright('扫描 '), `发现页面 ${nextBase}`);
-        paths.push(nextBase)
+      } 
+      // 如果是文件则先判断当前是不是page目录 不是则不push页面
+      else if (isCurrentPageDirectory) {
+        // 文件扩展名在传入的枚举中则加入
+        if (isValidPageFilePath(element)) {
+          console.log(chalk.magentaBright('扫描 '), `发现页面 ${nextBase}`);
+          paths.push(nextBase)
+        }
       }
     });
   }
