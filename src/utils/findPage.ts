@@ -17,15 +17,15 @@ export const findPage = (rootDir, base: string, options: {
   if (isDirectory(basePath)) {
     const files = fs.readdirSync(basePath)
     files.forEach(element => {
-      const currentPath = `${rootDir}/${base}/${element}`
+      const currentPath = `${basePath}/${element}`
       const nextBase: string = base ? `${base}/${element}` : element
-      const isCurrentPageDirectory = isPageDirectory(currentPath)
+      const isCurrentPageDirectory = isPageDirectory(basePath)
 
       // 是文件夹则递归
       if (isDirectory(currentPath)) {
         paths = paths.concat(findPage(rootDir, nextBase, {chalk}))
       } 
-      // 如果是文件则先判断当前是不是page目录 不是则不push页面
+      // 如果是文件则先判断当前父目录是不是page目录 是才执行后续判断
       else if (isCurrentPageDirectory) {
         // 文件扩展名在传入的枚举中则加入
         if (isValidPageFilePath(element)) {
