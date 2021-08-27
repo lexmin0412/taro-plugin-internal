@@ -27,7 +27,7 @@ module.exports = {
       repositories: [
         {
           dirname: "mp-subpackage",
-          url: "git@xxx.com:lexmin0412/demo-subpackage.git",
+          url: "https://xxx.com/lexmin0412/demo-subpackage.git",
           commit: "master",
           token: "sFtnN73T88P28JpSHWdH"
         },
