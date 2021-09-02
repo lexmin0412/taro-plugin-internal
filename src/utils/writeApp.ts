@@ -43,20 +43,20 @@ export const writeApp = (ctx, options: Options) => {
     files.forEach((file) => {
       file = file.slice(0, file.indexOf('.'))
       pageStr = pageStr ? `${pageStr}
-          "${file}",` : `"${file}",`
+          '${file}',` : `'${file}',`
     })
 
     // 只有页面个数大于0才加入分包列表
     if (pageStr) {
       joinPages = joinPages ? `${joinPages}
       {
-        "root": "subpackages/${item.dirname}",
-        "pages": [
+        'root': 'subpackages/${item.dirname}',
+        'pages': [
           ${pageStr}
         ]
       },` : `${joinPages}      {
-        "root": "subpackages/${item.dirname}",
-        "pages": [
+        'root': "subpackages/${item.dirname}',
+        'pages': [
           ${pageStr}
         ]
       },`
