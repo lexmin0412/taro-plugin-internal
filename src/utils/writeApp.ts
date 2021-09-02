@@ -51,7 +51,7 @@ export const writeApp = (ctx, options: Options) => {
       joinPages = joinPages ? `${joinPages}
       {
         root: 'subpackages/${item.dirname}',
-        pages': [
+        pages: [
           ${pageStr}
         ]
       },` : `${joinPages}      {
