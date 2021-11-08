@@ -38,6 +38,12 @@ export const writeFileByBoundry = (filePath, content, options: {
   const cutLines = end - 1 - start
   fileBuffer.splice(start, cutLines)
 
+  if (start === end) {
+    fileBuffer.splice(start, 0, content);
+  } else {
+    fileBuffer.splice(start, cutLines);
+  }
+
   // 拼接新内容
   fileBuffer[start] = content;
 
