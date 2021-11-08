@@ -34,14 +34,15 @@ export const writeFileByBoundry = (filePath, content, options: {
     end = fileBuffer.findIndex(item => item.indexOf(endLineContent) > -1)
   }
 
-  // 清除掉开始和结束行之间的原有内容
-  const cutLines = end - 1 - start
-  fileBuffer.splice(start, cutLines)
-
+  // 清除掉开始和结束行之间的原有
+  const cutLines = start === end ? 0 : end - 1 - start;
   if (start === end) {
-    fileBuffer.splice(start, 0, content);
-  } else {
+    fileBuffer.splice(start, cutLines, content);
+  }
+  else {
     fileBuffer.splice(start, cutLines);
+    // 拼接新内容
+    fileBuffer[start] = content;
   }
 
   // 拼接新内容
