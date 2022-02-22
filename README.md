@@ -1,6 +1,6 @@
 # taro-plugin-internal
 
-> 注意：本项目已迁移至 [lexmin0412/tarox](https://github.com/lexmin0412/tarox) ，此仓库不再维护，后续的所有工作都将在新仓库中进行，npm 包同样由 `taro-plugin-internal` 迁移至 `@tarox/plugin-internal` ，[点此](https://lexmin0412.github.io/tarox/docs/) 查看文档。
+> [点此](https://lexmin0412.github.io/tarox/docs/) 查看文档。
 
 Taro跨团队协作插件，基于 gitlab api，实现一主多从的多团队开发模式。
 
