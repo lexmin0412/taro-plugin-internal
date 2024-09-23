@@ -31,7 +31,7 @@ module.exports = {
           dirname: "mp-subpackage",
           url: "https://xxx.com/lexmin0412/demo-subpackage.git",
           commit: "master",
-          token: "sFtnN73T88P28JpSHWdH"
+          token: "personal_access_token_xxx"
         },
       ],
       writeConfig: {
